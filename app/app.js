@@ -1,5 +1,7 @@
 Ext.regApplication({
     name: 'app',
+    phoneStartupScreen: 'app/images/phone_startup.png',
+    icon: 'app/images/icon.png',
     launch: function() {
         this.launched = true;
         this.mainLaunch();
