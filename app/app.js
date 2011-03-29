@@ -1,6 +1,13 @@
 Ext.regApplication({
     name: 'app',
     launch: function() {
-        console.log('launch');
+        this.launched = true;
+        this.mainLaunch();
+    },
+    mainLaunch: function() {
+        //uncomment this to make the app device-only
+        //if (!device || !this.launched) {return;}
+        console.log('app.mainLaunch');
+        this.views.viewport = new this.views.Viewport();
     }
 });
