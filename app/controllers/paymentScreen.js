@@ -1,15 +1,17 @@
 // This needs to be re-defined
-app.controllers.determineLocation = new Ext.Controller({
+app.controllers.paymentScreen = new Ext.Controller({
     validate: function(){
         return true;
     },
 
     next: function(options) {
-        console.log('determineLocation.next')
+        console.log('paymentScreen.next')
         if (this.validate()){
+           /* Does not exist yet...
             app.views.parkingWorkflow.setActiveItem(
-                app.views.parkingWorkflow.selectCar, options.animation
+                app.views.parkingWorkflow.feedbackScreen, options.animation
             );
+            */
         } else {
 
         }

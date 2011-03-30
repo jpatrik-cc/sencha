@@ -26,7 +26,7 @@ app.views.Viewport = Ext.extend(Ext.TabPanel, {
 
         Ext.apply(this, {
             items: [
-                app.views.parkingWorkflow,
+                app.views.parkingWorkflow
 
                 //app.views.contactDetail,
                 //app.views.contactForm,

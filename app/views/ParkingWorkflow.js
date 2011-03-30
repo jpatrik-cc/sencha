@@ -28,16 +28,22 @@ app.views.ParkingWorkflow = Ext.extend(Ext.Panel, {
         //app.stores.contacts.load();
         console.log('ParkingWorkflow.init');
         Ext.apply(app.views.parkingWorkflow, {
-            determineLocation: new app.views.parkingWorkflow.DetermineLocation(),
-            selectCar: new app.views.parkingWorkflow.SelectCar()
+            locationScreen: new app.views.parkingWorkflow.LocationScreen(),
+            carSelectionScreen: new app.views.parkingWorkflow.CarSelectionScreen(),
+            timeSelectionScreen: new app.views.parkingWorkflow.TimeSelectionScreen(),
+            paymentScreen: new app.views.parkingWorkflow.PaymentScreen()
         });
 
         Ext.apply(this, {
-            determineLocation: app.views.parkingWorkflow.determineLocation,
-            selectCar: app.views.parkingWorkflow.selectCar,
+            locationScreen: app.views.parkingWorkflow.locationScreen,
+            carSelectionScreen: app.views.parkingWorkflow.carSelectionScreen,
+            timeSelectionScreen: app.views.parkingWorkflow.timeSelectionScreen,
+            paymentScreen: app.views.parkingWorkflow.paymentScreen,
             items: [
-                app.views.parkingWorkflow.determineLocation,
-                app.views.parkingWorkflow.selectCar,
+                app.views.parkingWorkflow.locationScreen,
+                app.views.parkingWorkflow.carSelectionScreen,
+                app.views.parkingWorkflow.timeSelectionScreen,
+                app.views.parkingWorkflow.paymentScreen
             ]
 
         });

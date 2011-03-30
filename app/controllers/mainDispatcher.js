@@ -1,8 +1,12 @@
 // This needs to be re-defined
 app.controllers.mainDispatcher = new Ext.Controller({
-    getNext: function(activeItem){
-        return {DetermineLocation: app.controllers.determineLocation,
-                SelectCar: app.controllers.selectCar}[activeItem]
+    getNext: function(activeItem) {
+        return {
+           LocationScreen: app.controllers.locationScreen, 
+           CarSelectionScreen: app.controllers.carSelectionScreen,
+           TimeSelectionScreen: app.controllers.timeSelectionScreen,
+           PaymentScreen: app.controllers.paymentScreen
+        }[activeItem]
     },
 
     next: function(options) {
