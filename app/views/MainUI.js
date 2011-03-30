@@ -6,6 +6,7 @@ app.views.MainUI = Ext.extend(Ext.Panel, {
     cardSwitchAnimation: 'slide',
     layout: 'card',
     
+    
     dockedItems:[{
         xtype: 'toolbar',
         dock: 'top',
@@ -14,12 +15,13 @@ app.views.MainUI = Ext.extend(Ext.Panel, {
             text: 'Ok',
             ui: 'forward',
             handler: function() {
-                // Something like this
-                //Ext.dispatch({
-                //    controller: app.controllers.contacts,
-                //    action: 'show',
-                //    id: record.getId()
-                //});
+                // Something like tahis
+                Ext.dispatch({
+                    controller: app.controllers.paymentOptions,
+                    action: 'next',
+                    id: '1',
+                    animation: {type:'slide', direction:'left'}
+                });
             }
         }]
     }],    
@@ -28,13 +30,18 @@ app.views.MainUI = Ext.extend(Ext.Panel, {
         //app.stores.contacts.load();
         console.log('MainUI.init');
         Ext.apply(app.views.mainUI, {
-            determineLocation: new app.views.mainUI.DetermineLocation()
+            determineLocation: new app.views.mainUI.DetermineLocation(),
+            selectCar: new app.views.mainUI.SelectCar()
         });
 
         Ext.apply(this, {
+            determineLocation: app.views.mainUI.determineLocation,
+            selectCar: app.views.mainUI.selectCar,
             items: [
-                app.views.mainUI.determineLocation
+                app.views.mainUI.determineLocation,
+                app.views.mainUI.selectCar
             ]
+
         });
         app.views.MainUI.superclass.initComponent.apply(this, arguments);
     }

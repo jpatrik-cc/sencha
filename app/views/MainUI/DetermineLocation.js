@@ -1,8 +1,9 @@
 app.views.mainUI.DetermineLocation = Ext.extend(Ext.Map, {
+    componentName: 'DetermineLocation',
     title: 'Map',
     getLocation: true,
     mapOptions: {
-        zoom: 14
+        zoom: 17
     },
     useCurrentLocation: true,
 
