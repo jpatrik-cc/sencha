@@ -1,11 +1,10 @@
-Ext.namespace('app.views.mainUI');
-app.views.MainUI = Ext.extend(Ext.Panel, {
+Ext.namespace('app.views.parkingWorkflow');
+app.views.ParkingWorkflow = Ext.extend(Ext.Panel, {
     fullscreen: true,
     title: 'Park',
     iconCls: 'download',
     cardSwitchAnimation: 'slide',
     layout: 'card',
-    
     
     dockedItems:[{
         xtype: 'toolbar',
@@ -15,7 +14,7 @@ app.views.MainUI = Ext.extend(Ext.Panel, {
             text: 'Ok',
             ui: 'forward',
             handler: function() {
-                // Something like tahis
+                // Something like this
                 Ext.dispatch({
                     controller: app.controllers.mainDispatcher,
                     action: 'next',
@@ -27,21 +26,21 @@ app.views.MainUI = Ext.extend(Ext.Panel, {
 
     initComponent: function() {
         //app.stores.contacts.load();
-        console.log('MainUI.init');
-        Ext.apply(app.views.mainUI, {
-            determineLocation: new app.views.mainUI.DetermineLocation(),
-            selectCar: new app.views.mainUI.SelectCar()
+        console.log('ParkingWorkflow.init');
+        Ext.apply(app.views.parkingWorkflow, {
+            determineLocation: new app.views.parkingWorkflow.DetermineLocation(),
+            selectCar: new app.views.parkingWorkflow.SelectCar()
         });
 
         Ext.apply(this, {
-            determineLocation: app.views.mainUI.determineLocation,
-            selectCar: app.views.mainUI.selectCar,
+            determineLocation: app.views.parkingWorkflow.determineLocation,
+            selectCar: app.views.parkingWorkflow.selectCar,
             items: [
-                app.views.mainUI.determineLocation,
-                app.views.mainUI.selectCar
+                app.views.parkingWorkflow.determineLocation,
+                app.views.parkingWorkflow.selectCar,
             ]
 
         });
-        app.views.MainUI.superclass.initComponent.apply(this, arguments);
+        app.views.ParkingWorkflow.superclass.initComponent.apply(this, arguments);
     }
 });

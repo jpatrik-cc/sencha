@@ -8,7 +8,7 @@ app.controllers.mainDispatcher = new Ext.Controller({
     next: function(options) {
         console.log('mainDispatcher.next')
         Ext.dispatch({
-            controller: this.getNext(app.views.mainUI.getActiveItem().componentName),
+            controller: this.getNext(app.views.parkingWorkflow.getActiveItem().componentName),
             action: 'next',
             animation: {type:'slide', direction:'left'}
         });

@@ -1,4 +1,4 @@
-app.views.mainUI.SelectCar = Ext.extend(Ext.Panel, {
+app.views.parkingWorkflow.SelectCar = Ext.extend(Ext.Panel, {
     componentName: 'SelectCar',
     fullscreen: true,
     dockedItems: [
@@ -22,6 +22,7 @@ app.views.mainUI.SelectCar = Ext.extend(Ext.Panel, {
 
     initComponent: function() {
         console.log('SelectCar.init');
-        app.views.mainUI.SelectCar.superclass.initComponent.apply(this, arguments);
+        app.views.parkingWorkflow.SelectCar.superclass.initComponent.apply(
+            this, arguments);
     }
 });

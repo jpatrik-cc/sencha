@@ -1,4 +1,4 @@
-app.views.mainUI.DetermineLocation = Ext.extend(Ext.Map, {
+app.views.parkingWorkflow.DetermineLocation = Ext.extend(Ext.Map, {
     componentName: 'DetermineLocation',
     title: 'Map',
     getLocation: true,
@@ -9,6 +9,6 @@ app.views.mainUI.DetermineLocation = Ext.extend(Ext.Map, {
 
     initComponent: function() {
         console.log('DetermineLocation.init');
-        app.views.mainUI.DetermineLocation.superclass.initComponent.apply(this, arguments);
+        app.views.parkingWorkflow.DetermineLocation.superclass.initComponent.apply(this, arguments);
     }
 });
