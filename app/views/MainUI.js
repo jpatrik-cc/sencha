@@ -17,9 +17,8 @@ app.views.MainUI = Ext.extend(Ext.Panel, {
             handler: function() {
                 // Something like tahis
                 Ext.dispatch({
-                    controller: app.controllers.paymentOptions,
+                    controller: app.controllers.mainDispatcher,
                     action: 'next',
-                    id: '1',
                     animation: {type:'slide', direction:'left'}
                 });
             }
