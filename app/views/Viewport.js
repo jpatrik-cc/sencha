@@ -16,20 +16,16 @@ app.views.Viewport = Ext.extend(Ext.TabPanel, {
     initComponent: function() {
         //put instances of cards into app.views namespace
         Ext.apply(app.views, {
-            parkingWorkflow: new app.views.ParkingWorkflow()
-
-            //contactDetail: new app.views.ContactDetail(),
-            //contactForm: new app.views.ContactForm()
+            parkingWorkflow: new app.views.ParkingWorkflow(),
+            checkoutWorkflow: new app.views.CheckoutWorkflow()
         });
         
         //put instances of cards into viewport
 
         Ext.apply(this, {
             items: [
-                app.views.parkingWorkflow
-
-                //app.views.contactDetail,
-                //app.views.contactForm,
+                app.views.parkingWorkflow,
+                app.views.checkoutWorkflow
             ]
         });
         app.views.Viewport.superclass.initComponent.apply(this, arguments);

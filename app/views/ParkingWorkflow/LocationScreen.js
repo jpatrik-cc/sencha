@@ -3,10 +3,10 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Map, {
     title: 'Map',
     getLocation: true,
     mapOptions: {
-        zoom: 17
+        zoom: 16
     },
     useCurrentLocation: true,
-
+    
     initComponent: function() {
         console.log('LocationScreen.init');
         app.views.parkingWorkflow.LocationScreen.superclass.initComponent.apply(this, arguments);
