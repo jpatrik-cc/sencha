@@ -14,9 +14,7 @@ app.views.ParkingWorkflow = Ext.extend(Ext.Panel, {
           {
             text: 'Ok',
             ui: 'forward',
-            handler: function() 
-            {
-                // Something like this
+            handler: function() {
                 Ext.dispatch({
                     controller: app.controllers.mainDispatcher,
                     action: 'next',
