@@ -1,6 +1,6 @@
 // This needs to be re-defined
 app.controllers.mainDispatcher = new Ext.Controller({
-    getNext: function(activeItem) {
+    getController: function(activeItem) {
         return {
            LocationScreen: app.controllers.locationScreen, 
            CarSelectionScreen: app.controllers.carSelectionScreen,
@@ -12,7 +12,7 @@ app.controllers.mainDispatcher = new Ext.Controller({
     next: function(options) {
         console.log('mainDispatcher.next')
         Ext.dispatch({
-            controller: this.getNext(app.views.parkingWorkflow.getActiveItem().componentName),
+            controller: this.getController(app.views.parkingWorkflow.getActiveItem().componentName),
             action: 'next',
             animation: {type:'slide', direction:'left'}
         });

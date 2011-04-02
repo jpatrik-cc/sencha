@@ -10,10 +10,12 @@ app.views.ParkingWorkflow = Ext.extend(Ext.Panel, {
         xtype: 'toolbar',
         dock: 'top',
         layout: {pack: 'right'},
-        items: [{
+        items: [
+          {
             text: 'Ok',
             ui: 'forward',
-            handler: function() {
+            handler: function() 
+            {
                 // Something like this
                 Ext.dispatch({
                     controller: app.controllers.mainDispatcher,
@@ -21,7 +23,7 @@ app.views.ParkingWorkflow = Ext.extend(Ext.Panel, {
                     animation: {type:'slide', direction:'left'}
                 });
             }
-        }]
+         }]
     }],    
 
     initComponent: function() {

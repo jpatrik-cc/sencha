@@ -10,8 +10,17 @@ app.controllers.locationScreen = new Ext.Controller({
             app.views.parkingWorkflow.setActiveItem(
                 app.views.parkingWorkflow.carSelectionScreen, options.animation
             );
-        } else {
+        } 
+	else {}
+    },
 
-        }
+    prev: function(options) {
+       console.log('locationScreen.prev')
+       if (this.validate())
+       {
+          app.views.parkingWorkflow.setActiveItem(
+             app.views.parkingWorkflow.locationScreen);
+       }
+       else {}
     }
 });
