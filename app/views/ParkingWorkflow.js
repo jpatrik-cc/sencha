@@ -6,12 +6,34 @@ app.views.ParkingWorkflow = Ext.extend(Ext.Panel, {
     cardSwitchAnimation: 'slide',
     layout: 'card',
     
-    dockedItems:[{
+    dockedItems:[
+    {
         xtype: 'toolbar',
         dock: 'top',
-        layout: {pack: 'right'},
+        layout: 
+        {
+            // pack: 'right'
+            type: 'hbox',
+            //align: 'stretch'
+            align: 'center',
+            pack: 'justify'
+        },
         items: [
+         {
+             width: 50,
+             text: 'Back',
+             ui: 'back',
+             handler: function ()
+             {
+                Ext.dispatch({
+                    controller: app.controllers.mainDispatcher,
+                    action: 'previous',
+                    animation: {type: 'slide', direction: 'right'}
+                });
+             }
+         },
           {
+              width: 50,
             text: 'Ok',
             ui: 'forward',
             handler: function() {
@@ -21,8 +43,10 @@ app.views.ParkingWorkflow = Ext.extend(Ext.Panel, {
                     animation: {type:'slide', direction:'left'}
                 });
             }
-         }]
-    }],    
+         }
+         ]
+    }
+    ],    
 
     initComponent: function() {
         //app.stores.contacts.load();

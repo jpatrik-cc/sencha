@@ -4,6 +4,15 @@ app.controllers.carSelectionScreen = new Ext.Controller({
         return true;
     },
 
+    previous: function (options) {
+        console.log('carSelectionScreen.previous')
+        if ( this.validate() )
+        {
+            app.views.parkingWorkflow.setActiveItem(
+                app.views.parkingWorkflow.locationScreen, options.animation);
+        }
+    },
+
     next: function(options) {
         console.log('carSelectionScreen.next')
         if (this.validate()){
