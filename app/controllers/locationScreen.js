@@ -13,7 +13,6 @@ app.controllers.locationScreen = new Ext.Controller({
         } 
 	else {}
     },
-
     prev: function(options) {
        console.log('locationScreen.prev')
        if (this.validate())

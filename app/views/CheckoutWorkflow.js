@@ -1,4 +1,5 @@
 Ext.namespace('app.views.checkoutWorkflow');
+
 app.views.CheckoutWorkflow = Ext.extend(Ext.Panel, {
     fullscreen: true,
     title: 'Checkout',
@@ -12,6 +13,7 @@ app.views.CheckoutWorkflow = Ext.extend(Ext.Panel, {
         layout: {pack: 'right'},
         title: 'Checkout'
     }],    
+
     listeners:{
         activate : function(panel){
             app.views.parkingWorkflow.setActiveItem(0);

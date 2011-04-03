@@ -12,7 +12,7 @@ app.controllers.mainDispatcher = new Ext.Controller({
 
     previous: function (options)
     {
-        console.log('mainDispatcher.previous')
+        console.log('mainDispatcher.previous');
         Ext.dispatch(
         {
             controller: this.getController(app.views.parkingWorkflow.getActiveItem().componentName),
@@ -22,7 +22,7 @@ app.controllers.mainDispatcher = new Ext.Controller({
     },
 
     next: function(options) {
-        console.log('mainDispatcher.next')
+        console.log('mainDispatcher.next');
         Ext.dispatch({
             controller: this.getController(app.views.parkingWorkflow.getActiveItem().componentName),
             action: 'next',
