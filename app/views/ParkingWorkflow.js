@@ -49,7 +49,7 @@ app.views.ParkingWorkflow = Ext.extend(Ext.Panel, {
     ],    
     listeners:{
         activate : function(panel){
-            app.views.checkoutWorkflow.setActiveItem(0);
+            app.views.parkingWorkflow.setActiveItem(0);
         }
     },
 
