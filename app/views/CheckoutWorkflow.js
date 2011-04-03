@@ -12,6 +12,11 @@ app.views.CheckoutWorkflow = Ext.extend(Ext.Panel, {
         layout: {pack: 'right'},
         title: 'Checkout'
     }],    
+    listeners:{
+        activate : function(panel){
+            app.views.parkingWorkflow.setActiveItem(0);
+        }
+    },
 
     initComponent: function() {
         //app.stores.contacts.load();

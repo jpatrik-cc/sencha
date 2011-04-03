@@ -47,6 +47,11 @@ app.views.ParkingWorkflow = Ext.extend(Ext.Panel, {
          ]
     }
     ],    
+    listeners:{
+        activate : function(panel){
+            app.views.checkoutWorkflow.setActiveItem(0);
+        }
+    },
 
     initComponent: function() {
         //app.stores.contacts.load();
