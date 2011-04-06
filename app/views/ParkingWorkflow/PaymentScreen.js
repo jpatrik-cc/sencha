@@ -33,7 +33,12 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
             text: 'Confirm',
             handler: function(button, event){
                 Ext.Msg.alert('Confirmation', 'Your car has been parked.', 
-                              Ext.emptyFn);
+                              function(){
+                                  app.views.viewport
+                                      .setActiveItem(1, 
+                                                     {type: 'slide', 
+                                                      direction: 'left'});
+                              });
             }
         })
     ],
