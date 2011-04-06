@@ -2,7 +2,7 @@ Ext.namespace('app.views.checkoutWorkflow');
 
 app.views.CheckoutWorkflow = Ext.extend(Ext.Panel, {
     fullscreen: true,
-    title: 'Checkout',
+    title: 'Parked Cars',
     iconCls: 'time',
     cardSwitchAnimation: 'slide',
     layout: 'card',
@@ -11,7 +11,7 @@ app.views.CheckoutWorkflow = Ext.extend(Ext.Panel, {
         xtype: 'toolbar',
         dock: 'top',
         layout: {pack: 'right'},
-        title: 'Checkout'
+        title: 'Parked Cars'
     }],    
 
     listeners:{

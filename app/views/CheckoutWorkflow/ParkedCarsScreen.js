@@ -3,7 +3,7 @@ app.views.checkoutWorkflow.ParkedCarsScreen = Ext.extend(Ext.Panel, {
         xtype: 'list',
         store: app.stores.parkedCars,
         itemTpl: '{licensePlate} parked at {parkingLot} (since {time})',
-        onItemDisclosure: function (record) {
+        onItemSelect: function (record) {
             Ext.dispatch({
                 controller: app.controllers.parkedCarDetailScreen,
                 action: 'show',

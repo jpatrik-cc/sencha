@@ -13,5 +13,9 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
             ui  : 'confirm-round',
             text: 'Checkout'
         }),
+        new Ext.Button({
+            ui  : 'round',
+            text: 'Extend'
+        }),
     ]
 });

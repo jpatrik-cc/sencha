@@ -29,12 +29,45 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
         ] // end dockedItems.items
     }], // end dockedItems
     items:[
-        {
-            xtype: 'datepickerfield',
-            name: 'reminder',
-            label: 'Reminder',
-            picker: { yearFrom: 2000 }
-        },
+        new Ext.form.FormPanel({
+            items: [
+                {
+                    xtype: 'textfield',
+                    name : 'first',
+                    label: 'First name'
+                },
+                new Ext.Picker({
+                    slots: [
+                        {
+                            name : 'limit_speed',
+                            title: 'Speed',
+                            data : [
+                                {text: '50 KB/s', value: 50},
+                                {text: '100 KB/s', value: 100},
+                                {text: '200 KB/s', value: 200},
+                                {text: '300 KB/s', value: 300}
+                            ]
+                        }
+                    ]
+                })
+            ]
+        }),
+            
+        // new Ext.Picker({
+        //     slots: [
+        //         {
+        //             name : 'limit_speed',
+        //             title: 'Speed',
+        //             data : [
+        //                 {text: '50 KB/s', value: 50},
+        //                 {text: '100 KB/s', value: 100},
+        //                 {text: '200 KB/s', value: 200},
+        //                 {text: '300 KB/s', value: 300}
+        //             ]
+        //         }
+        //     ]
+        // }),
+
         new Ext.Button({
             ui  : 'confirm-round',
             text: 'Next',
