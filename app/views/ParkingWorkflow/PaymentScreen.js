@@ -24,6 +24,10 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
 
     }], // end dockedItems
     items: [
+        {xtype: 'passwordfield',
+         name : 'pincode',
+         label: 'PinCode'},
+        {contentEl: 'paymentScreen',},
         new Ext.Button({
             ui  : 'confirm-round',
             text: 'Confirm',
@@ -33,7 +37,6 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
             }
         })
     ],
-    contentEl: 'paymentScreen',
 
     initComponent: function() {
         console.log('PaymentScreen.init');

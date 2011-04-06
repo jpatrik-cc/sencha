@@ -6,15 +6,21 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
     //     zoom: 16
     // },
     // useCurrentLocation: true,
-    contentEl: 'locationScreen',
     dockedItems: [
     {
         xtype: 'toolbar',
         dock: 'top',
         title: 'Location',
     }], // end dockedItems
+    scroll: 'vertical',
+    layout: {
+        type: 'vbox',
+        align: 'strech'
+    },
 
     items:[
+        {contentEl: 'locationScreen', },
+
         new Ext.Button({
             ui  : 'confirm-round',
             text: 'Next',
