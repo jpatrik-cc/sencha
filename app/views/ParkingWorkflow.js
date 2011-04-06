@@ -44,49 +44,49 @@ app.views.ParkingWorkflow = Ext.extend(Ext.Panel, {
     cardSwitchAnimation: 'slide',
     layout: 'card',
     
-    dockedItems: [
-    {
-        xtype: 'toolbar',
-        dock: 'top',
-        title: 'Park',
-        layout: 
-        {
-            // pack: 'right'
-            type: 'hbox',
-            //align: 'stretch'
-            align: 'center',
-            pack: 'justify'
-        },
-        // These items belongs to this dockedItems toolbar
-        items: [
-        {
-            width: 50,
-            text: 'Back',
-            ui: 'back',
-            handler: function ()
-            {
-            Ext.dispatch({
-                controller: app.controllers.mainDispatcher,
-                action: 'previous',
-                animation: {type: 'slide', direction: 'right'}
-            });
-            }
-        },
-        {
-            width: 50,
-            text: 'Ok',
-            ui: 'forward',
-            handler: function() {
-                Ext.dispatch({
-                    controller: app.controllers.mainDispatcher,
-                    action: 'next',
-                    animation: {type:'slide', direction:'left'}
-                });
-            }
-        }
-        ] // end items
-    }
-    ], // end dockedItems toolbar
+    // dockedItems: [
+    // {
+    //     xtype: 'toolbar',
+    //     dock: 'top',
+    //     title: 'Park',
+    //     layout: 
+    //     {
+    //         // pack: 'right'
+    //         type: 'hbox',
+    //         //align: 'stretch'
+    //         align: 'center',
+    //         pack: 'justify'
+    //     },
+    //     // These items belongs to this dockedItems toolbar
+    //     items: [
+    //     {
+    //         width: 50,
+    //         text: 'Back',
+    //         ui: 'back',
+    //         handler: function ()
+    //         {
+    //         Ext.dispatch({
+    //             controller: app.controllers.mainDispatcher,
+    //             action: 'previous',
+    //             animation: {type: 'slide', direction: 'right'}
+    //         });
+    //         }
+    //     },
+    //     {
+    //         width: 50,
+    //         text: 'Ok',
+    //         ui: 'forward',
+    //         handler: function() {
+    //             Ext.dispatch({
+    //                 controller: app.controllers.mainDispatcher,
+    //                 action: 'next',
+    //                 animation: {type:'slide', direction:'left'}
+    //             });
+    //         }
+    //     }
+    //     ] // end items
+    // }
+    // ], // end dockedItems toolbar
 
     listeners:{
         activate : function(panel){

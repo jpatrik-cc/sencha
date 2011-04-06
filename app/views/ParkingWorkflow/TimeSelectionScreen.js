@@ -5,6 +5,7 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
     {
         xtype: 'toolbar',
         dock: 'top',
+        title: 'Time Selection',
         layout:
         {
             type: 'hbox',
@@ -13,8 +14,7 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
         },
         items: [
         {
-            width: 50,
-            text: 'Back',
+            text: 'Car Selection',
             ui: 'back',
             handler: function ()
             {
@@ -26,13 +26,18 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
                 });
             }
         },
+        ] // end dockedItems.items
+    }], // end dockedItems
+    items:[
         {
-            text: 'Time Selection'
+            xtype: 'datepickerfield',
+            name: 'reminder',
+            label: 'Reminder',
+            picker: { yearFrom: 2000 }
         },
-        {
-            width: 50,
-            text: 'Ok',
-            ui: 'forward',
+        new Ext.Button({
+            ui  : 'confirm-round',
+            text: 'Next',
             handler: function ()
             {
                 Ext.dispatch(
@@ -42,10 +47,9 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
                     animation: { type: 'slide', direction: 'left' }
                 });
             }
-        }] // end dockedItems.items
-    }], // end dockedItems
+        }),
 
-    html: 'Time Selection Screen',
+    ],
 
     initComponent: function() {
         console.log('TimeSelectionScreen.init');

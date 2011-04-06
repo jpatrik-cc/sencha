@@ -1,12 +1,12 @@
 app.views.parkingWorkflow.CarSelectionScreen = Ext.extend(Ext.Panel, {
     fullscreen: true,
-    title: 'Car Selection',
     componentName: 'CarSelectionScreen',
 
     dockedItems: [
     {
         xtype: 'toolbar',
         dock: 'top',
+        title: 'Car Selection',
         layout:
         {
             type: 'hbox',
@@ -15,8 +15,7 @@ app.views.parkingWorkflow.CarSelectionScreen = Ext.extend(Ext.Panel, {
         },
         items: [
         {
-            width: 50,
-            text: 'Back',
+            text: 'Location',
             ui: 'back',
             handler: function ()
             {
@@ -28,34 +27,26 @@ app.views.parkingWorkflow.CarSelectionScreen = Ext.extend(Ext.Panel, {
                 });
             }
         },
-        {
-            text: 'Car Selection'
-        },
-        {
-            width: 50,
-            text: 'Ok',
-            ui: 'forward',
-            handler: function ()
-            {
-                Ext.dispatch(
-                {
-                    controller: app.controllers.mainDispatcher,
-                    action: 'next',
-                    animation: { type: 'slide', direction: 'left' }
-                });
-            }
-        }] // end dockedItems.items
+        ] // end dockedItems.items
     }], // end dockedItems
 
     items: [{
         xtype: 'list',
         store: app.stores.availableCars,
         itemTpl: '{make} {model} ({licensePlate})',
+        onItemSelect: function (record) {
+            Ext.dispatch(
+                {
+                    controller: app.controllers.mainDispatcher,
+                    action: 'next',
+                    animation: { type: 'slide', direction: 'left' }
+                });
+        }
     }],
 
     listeners:{
         activate : function(panel){
-            panel.items.get(0).getSelectionModel().select(0);
+            //panel.items.get(0).getSelectionModel().select(0);
         }
     },
 
