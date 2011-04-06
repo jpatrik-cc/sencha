@@ -23,6 +23,16 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
         ] // end dockedItems.items
 
     }], // end dockedItems
+    items: [
+        new Ext.Button({
+            ui  : 'confirm-round',
+            text: 'Confirm',
+            handler: function(button, event){
+                Ext.Msg.alert('Confirmation', 'Your car has been parked.', 
+                              Ext.emptyFn);
+            }
+        })
+    ],
     contentEl: 'paymentScreen',
 
     initComponent: function() {

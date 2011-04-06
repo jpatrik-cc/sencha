@@ -1,4 +1,20 @@
 app.views.checkoutWorkflow.ParkedCarsScreen = Ext.extend(Ext.Panel, {
+    dockedItems: [
+    {
+        xtype: 'toolbar',
+        dock: 'top',
+        title: 'Confirm',
+        items: [
+        {
+            text: 'Parking',
+            ui: 'back',
+            handler: function (){
+                app.views.checkoutWorkflow.setActiveItem(0, { type: 'slide', 
+                                                              direction: 'right' });
+            }
+        },
+        ]
+    }],// end dockedItems.items
     items: [{
         xtype: 'list',
         store: app.stores.parkedCars,

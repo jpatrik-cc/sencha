@@ -7,16 +7,16 @@ app.views.CheckoutWorkflow = Ext.extend(Ext.Panel, {
     cardSwitchAnimation: 'slide',
     layout: 'card',
     
-    dockedItems:[{
-        xtype: 'toolbar',
-        dock: 'top',
-        layout: {pack: 'right'},
-        title: 'Parked Cars'
-    }],    
+    // dockedItems:[{
+    //     xtype: 'toolbar',
+    //     dock: 'top',
+    //     layout: {pack: 'right'},
+    //     title: 'Parked Cars'
+    // }],    
 
     listeners:{
         activate : function(panel){
-            app.views.checkoutWorkflow.setActiveItem(0);
+            app.views.checkoutWorkflow.setActiveItem(0, 'fade');
         }
     },
 
