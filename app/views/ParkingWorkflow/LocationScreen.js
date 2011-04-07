@@ -18,9 +18,38 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
         align: 'strech'
     },
 
+    listeners:{
+        activate : function(panel){
+            var geo = new Ext.util.GeoLocation({
+                autoUpdate: false,
+                listeners: {
+                    locationupdate: function (geo) {
+                        img = document.createElement('img');
+                        img.setAttribute('src','http://maps.google.com/maps/api/staticmap?markers='+geo.latitude+','+geo.longitude+'&zoom=16&size=300x300&sensor=true');
+                        div = document.getElementById("map_img")
+                        div.appendChild(img);
+                    },
+                    locationerror: function (   geo,
+                                                bTimeout, 
+                                                bPermissionDenied, 
+                                                bLocationUnavailable, 
+                                                message) {
+                        if(bTimeout){
+                            alert('Timeout occurred.');
+                        }
+                        else{
+                            alert('Error occurred.');
+                        }
+                    }
+                }
+            });
+            geo.updateLocation();
+        }
+    },
+
     items:[
         {contentEl: 'locationScreen', },
-
+        {contentEl: 'parkingTerms', },
         new Ext.Button({
             ui  : 'confirm-round',
             text: 'Next',

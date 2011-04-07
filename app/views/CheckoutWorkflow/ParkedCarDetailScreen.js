@@ -25,6 +25,8 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
         {tpl:[
             '<h4>Your total payment is: {ammount}</h4>',
         ]},
+        {contentEl: 'parkedCarDetailScreen'},
+
         new Ext.Button({
             ui  : 'confirm-round',
             text: 'Checkout',
