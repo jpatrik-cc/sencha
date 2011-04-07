@@ -25,7 +25,7 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
                 listeners: {
                     locationupdate: function (geo) {
                         img = document.createElement('img');
-                        img.setAttribute('src','http://maps.google.com/maps/api/staticmap?markers='+geo.latitude+','+geo.longitude+'&zoom=16&size=100x150&sensor=true');
+                        img.setAttribute('src','http://maps.google.com/maps/api/staticmap?markers='+geo.latitude+','+geo.longitude+'&zoom=16&size=150x100&sensor=true');
                         div = document.getElementById("map_img")
                         div.appendChild(img);
                     },
