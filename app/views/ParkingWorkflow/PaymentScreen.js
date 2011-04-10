@@ -78,7 +78,7 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
                               });
                 */
                 Ext.Msg.prompt('pin', 'Oh, hai! Insert PIN kthnxbai.', 
-                    function() {
+                    function(number) {
                         app.views.viewport.setActiveItem(1, 
                             {type: 'slide', direction: 'left'});
                     }
