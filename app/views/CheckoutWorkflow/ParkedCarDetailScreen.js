@@ -14,7 +14,7 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
         title: 'Your parking',
         items: [
         {
-            text: 'Parking',
+            text: 'Parked cars',
             ui: 'back',
             handler: function (){
                 app.views.checkoutWorkflow.setActiveItem(0, { type: 'slide', 
@@ -33,12 +33,25 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
             '<h4>Your total payment is: {ammount}</h4>',
         ]},
         {contentEl: 'parkedCarDetailScreen'},
-
+        /*
+    {
+        xtype: 'text',
+        store: app.stores.parkedCars,
+        itemTpl: '{licensePlate} parked at {parkingLot} (since {time})',
+    },
+    */
+        /*
+        {
+            html: 'RDE 154 parked at Ideon (since 1 min)',
+            centered: true
+        },
+        */
         new Ext.Button({
             ui  : 'confirm',
             text: 'Checkout',
             height: 50,
             centered: true,
+            margin: 10,
             handler: function() {
                 if (!this.actions) {
                     this.actions = new Ext.ActionSheet({
@@ -81,10 +94,12 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
             ui  : 'normal',
             text: 'Extend',
             height: 50,
+            margin: 10,
             centered: true,
-            handler: function(button, event) {
-                app.views.checkoutWorkflow.setActiveItem(0, {type: 'slide', 
-                                                             direction: 'right'});
+            handler : function(){
+                app.views.checkoutWorkflow.setActiveItem(
+                    app.views.checkoutWorkflow.extensionScreen
+                );
             }
         }),
     ]
