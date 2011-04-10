@@ -56,8 +56,8 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
                                 text: 'Confirm',
                                 padding: 10,
                                 margin: '20 0 0 0',
-                                handler: function(){
-                                    //this.actions.hide();
+                                handler: function(el){
+                                    console.log(el);
                                     Ext.Msg.alert('Confirmation', 
                                                   'Your car has been parked.', 
                                                   function(){
