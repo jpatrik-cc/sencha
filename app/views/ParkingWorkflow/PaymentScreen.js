@@ -1,6 +1,13 @@
 app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
     componentName: 'PaymentScreen',
     fullscreen: true,
+    scroll: 'vertical',
+    layout: {
+        type: 'vbox',
+        align: 'stretch',
+        pack: 'justify'
+    },
+
     dockedItems: [
     {
         xtype: 'toolbar',
