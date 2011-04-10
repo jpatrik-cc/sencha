@@ -43,7 +43,7 @@ app.views.parkingWorkflow.CarSelectionScreen = Ext.extend(Ext.Panel, {
             /* width: 320, */
             height: 50,
             padding: 10,
-            margin: '30 10 15 10',
+            margin: '30 10 10 10',
             centered: true,
             handler: function (record) {
                 Ext.dispatch(
@@ -56,11 +56,11 @@ app.views.parkingWorkflow.CarSelectionScreen = Ext.extend(Ext.Panel, {
         }),
         new Ext.Button({
             ui: 'normal',
-            text: 'Other',
+            text: 'Other ...',
             /* width: 320, */
             height: 50,
             padding: 10,
-            margin: '15 10 30 10',
+            margin: '15 10 10 10',
             centered: true
         })
         /*
