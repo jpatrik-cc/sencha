@@ -31,21 +31,38 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
 
     }], // end dockedItems
     items: [
+    /*
         {
             xtype: 'numberfield',
             name : 'pincode',
             label: 'PinCode'
         },
+    */
+    /* Moved this to the previous screen.
+        {
+            text: 'Prompt',
+            ui: 'round',
+            handler: function() {
+                Ext.Msg.prompt("Welcome! What's your first name?", Ext.emptyFn);
+            }
+        },
+    */
+        {
+            contentEl: 'paymentInfo'
+        },
+    /*
         {
             contentEl: 'paymentScreen'
         },
+    */
         new Ext.Button({
             ui  : 'normal',
             text: 'Confirm',
             height: 50,
             padding: 10,
             margin: 10,
-            handler: function(button, event){
+            handler: function(){
+                /*
                 Ext.Msg.alert('Confirmation', 'Your car has been parked.', 
                               function(){
                                   app.views.viewport
@@ -53,6 +70,13 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
                                                      {type: 'slide', 
                                                       direction: 'left'});
                               });
+                */
+                Ext.Msg.prompt('pin', 'Oh, hai! Insert PIN kthnxbai.', 
+                    function() {
+                        app.views.viewport.setActiveItem(1, 
+                            {type: 'slide', direction: 'left'});
+                    }
+                );
             }
         })
     ],
