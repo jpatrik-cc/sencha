@@ -3,7 +3,8 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
     scroll: 'vertical',
     layout: {
         type: 'vbox',
-        align: 'stretch'
+        align: 'stretch',
+        pack: 'justify'
     },
 
     dockedItems: [
@@ -57,7 +58,7 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
             /* width: 320, */
             height: 50,
             padding: 10,
-            margin: '10 10 0 10',
+            margin: '10 10 10 10',
             centered: true,
             handler: function ()
             {
