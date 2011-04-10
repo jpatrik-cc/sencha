@@ -3,7 +3,9 @@ app.views.parkingWorkflow.CarSelectionScreen = Ext.extend(Ext.Panel, {
     scroll: 'vertical',
     layout: {
         type: 'vbox',
-        align: 'center'
+        /* align: 'center' */
+        align: 'stretch',
+        pack: 'justify'
     },
 
     dockedItems: [
@@ -38,10 +40,10 @@ app.views.parkingWorkflow.CarSelectionScreen = Ext.extend(Ext.Panel, {
         new Ext.Button({
             ui: 'normal',
             text: 'Ferrari F50 (XRK 543)',
-            width: 320,
+            /* width: 320, */
             height: 50,
             padding: 10,
-            margin: '30 0 15 0',
+            margin: '30 10 15 10',
             centered: true,
             handler: function (record) {
                 Ext.dispatch(
@@ -55,10 +57,10 @@ app.views.parkingWorkflow.CarSelectionScreen = Ext.extend(Ext.Panel, {
         new Ext.Button({
             ui: 'normal',
             text: 'Other',
-            width: 320,
+            /* width: 320, */
             height: 50,
             padding: 10,
-            margin: '15 0 30 0',
+            margin: '15 10 30 10',
             centered: true
         })
         /*
