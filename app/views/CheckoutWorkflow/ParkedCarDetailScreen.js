@@ -34,7 +34,7 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
                 if (!this.actions) {
                     this.actions = new Ext.ActionSheet({
                         items: [
-                            {text:"You're final payment will be $3.5"},
+                            {text:"Final payment: €3.5"},
                             {
                                 text: 'Accept',
                                 ui: 'confirm',

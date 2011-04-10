@@ -24,7 +24,7 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
 
     }], // end dockedItems
     items: [
-        {xtype: 'passwordfield',
+        {xtype: 'numberfield',
          name : 'pincode',
          label: 'PinCode'},
         {contentEl: 'paymentScreen',},
