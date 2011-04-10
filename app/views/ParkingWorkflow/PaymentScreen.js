@@ -7,6 +7,7 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
         align: 'stretch',
         pack: 'justify'
     },
+    popup: null,
 
     dockedItems: [
     {
@@ -42,7 +43,8 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
             margin: 10,
             handler: function() {
                 if (!this.popup) {
-                    this.popup = new Ext.MessageBox({
+                    app.views.parkingWorkflow.paymentScreen.popup = 
+                      new Ext.MessageBox({
                         floating: true,
                         modal: true,
                         centered: true,
@@ -56,8 +58,8 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
                                 text: 'Confirm',
                                 padding: 10,
                                 margin: '20 0 0 0',
-                                handler: function(el){
-                                    console.log(el);
+                                handler: function(){
+                                    app.views.parkingWorkflow.paymentScreen.popup.destroy()
                                     Ext.Msg.alert('Confirmation', 
                                                   'Your car has been parked.', 
                                                   function(){
@@ -77,7 +79,7 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
                         ]
                     });
                 }
-                this.popup.show('pop');
+                app.views.parkingWorkflow.paymentScreen.popup.show('pop');
             },
 
 
