@@ -33,7 +33,6 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
     picker: new Ext.Picker({
         useTitles: true,
         width: 300,
-        height: 450,
         slots: [
             {name : 'hours',
              title: 'Hours',
@@ -63,19 +62,53 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
         ],
         listeners: {
             change : function(picker, values) {
+                var d = new Date();
+                var d2 = new Date( d );
+                d2.setHours(d.getHours() + values.hours);
+                d2.setMinutes(d.getMinutes() + values.minutes);
+
                 app.views.parkingWorkflow.timeSelectionScreen.items.get(0)
-                    .setValue(values.hours+":"+values.minutes);
+                    .setValue("{0}:{1}".format(d2.getHours(), d2.getMinutes()));
+
+                var price_per_minute = 0.0166;
+                var flat_rate = 10;
+                var minutes = values.hours * 60 + values.minutes;
+                console.log(minutes);
+                if ( minutes >= 180 ){ 
+                    var estimate = flat_rate
+                }else{
+                    var estimate = minutes*price_per_minute
+                }
+
+                app.views.parkingWorkflow.timeSelectionScreen.items.get(1)
+                    .setValue('€{0}'.format(estimate));
+
                 console.log(picker, values);
             }
         }
     }),
     listeners:{
         activate : function(panel){
-            //app.views.parkingWorkflow.timeSelectionScreen.picker.show();
-            //app.views.parkingWorkflow.timeSelectionScreen.picker.setValue({
-            //    hours: 0,
-            //    minutes: 15,
-            //})
+            // set the default time
+            var default_hours = 0;
+            var default_minutes = 15;
+
+            var d = new Date();
+            var d2 = new Date( d );
+            d2.setHours(d.getHours() + default_hours);
+            d2.setMinutes(d.getMinutes() + default_minutes);
+            app.views.parkingWorkflow.timeSelectionScreen.items.get(0)
+                .setValue(d2.getHours()+":"+d2.getMinutes());
+            app.views.parkingWorkflow.timeSelectionScreen.items.get(1)
+                .setValue('€0.5');
+            
+
+            app.views.parkingWorkflow.timeSelectionScreen.picker.show();
+            app.views.parkingWorkflow.timeSelectionScreen.picker.setValue({
+               hours: 0,
+               minutes: 15,
+            })
+            
         }
     },
     items:[
@@ -83,8 +116,7 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
 
         {xtype: 'textfield',
          name : 'reminder',
-         label: 'Reminder Time',
-         value: '0:15',
+         label: 'Reminder',
          listeners: {
              click: {
                  element: 'el', //bind to the underlying el property on the panel
@@ -98,7 +130,13 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
              },
          },
         },
+        
+        {xtype: 'textfield',
+         name : 'price',
+         label: 'Price',
+         disabled:true},
 
+        
         new Ext.Button({
             ui  : 'normal',
             text: 'Confirm time',
@@ -121,3 +159,11 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
             this, arguments);
     }
 });
+
+String.prototype.format = function() {
+    var formatted = this;
+    for(arg in arguments) {
+        formatted = formatted.replace("{" + arg + "}", arguments[arg]);
+    }
+    return formatted;
+};
