@@ -36,7 +36,7 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
         },
         new Ext.Button({
             ui  : 'normal',
-            text: 'Confirm',
+            text: 'Start Parking',
             height: 50,
             padding: 10,
             margin: 10,
@@ -56,8 +56,19 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
                                 text: 'Confirm',
                                 padding: 10,
                                 margin: '20 0 0 0',
-                            }),
-
+                                handler: function(){
+                                    //this.actions.hide();
+                                    Ext.Msg.alert('Confirmation', 
+                                                  'Your car has been parked.', 
+                                                  function(){
+                                                      app.views.viewport
+                                                          .setActiveItem(
+                                                              1, 
+                                                              {type: 'slide', 
+                                                               direction: 'left'});
+                                                  });
+                                },
+                            })
                         ],
                         dockedItems: [
                             {xtype: 'toolbar',
