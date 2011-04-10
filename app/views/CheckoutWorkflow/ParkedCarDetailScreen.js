@@ -11,10 +11,10 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
     {
         xtype: 'toolbar',
         dock: 'top',
-        title: 'Your parking',
+        title: 'Parking',
         items: [
         {
-            text: 'Parked cars',
+            text: 'Cars',
             ui: 'back',
             handler: function (){
                 app.views.checkoutWorkflow.setActiveItem(0, { type: 'slide', 
