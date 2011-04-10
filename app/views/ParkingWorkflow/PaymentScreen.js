@@ -15,7 +15,7 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
         title: 'Confirm',
         items: [
         {
-            text: 'Time Selection',
+            text: 'Time',
             ui: 'back',
             handler: function ()
             {
@@ -31,13 +31,20 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
 
     }], // end dockedItems
     items: [
-        {xtype: 'numberfield',
-         name : 'pincode',
-         label: 'PinCode'},
-        {contentEl: 'paymentScreen',},
+        {
+            xtype: 'numberfield',
+            name : 'pincode',
+            label: 'PinCode'
+        },
+        {
+            contentEl: 'paymentScreen'
+        },
         new Ext.Button({
-            ui  : 'confirm-round',
+            ui  : 'normal',
             text: 'Confirm',
+            height: 50,
+            padding: 10,
+            margin: 10,
             handler: function(button, event){
                 Ext.Msg.alert('Confirmation', 'Your car has been parked.', 
                               function(){
