@@ -50,10 +50,20 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
                         scroll: 'vertical',
                         items: [
                             {xtype: 'zipfield',
-                             name : 'numberstest',
-                             label: 'PinCode',},
-                            
+                             name : 'numberstest',},
+                            new Ext.Button({
+                                ui  : 'confirm',
+                                text: 'Confirm',
+                                padding: 10,
+                                margin: '20 0 0 0',
+                            }),
+
                         ],
+                        dockedItems: [
+                            {xtype: 'toolbar',
+                             dock: 'top',
+                             title: 'PinCode',},
+                        ]
                     });
                 }
                 this.popup.show('pop');
