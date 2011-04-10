@@ -26,15 +26,18 @@ app.views.CheckoutWorkflow = Ext.extend(Ext.Panel, {
         Ext.apply(app.views.checkoutWorkflow, {
             parkedCarsScreen: new app.views.checkoutWorkflow.ParkedCarsScreen(),
             parkedCarDetailScreen: new app.views.checkoutWorkflow.ParkedCarDetailScreen(),
+            extensionScreen: new app.views.checkoutWorkflow.ExtensionScreen(),
         });
 
         Ext.apply(this, {
             parkedCarsScreen: app.views.checkoutWorkflow.parkedCarsScreen,
             parkedCarDetailScreen: app.views.checkoutWorkflow.parkedCarDetailScreen,
+            extensionScreen: app.views.checkoutWorkflow.extensionScreen,
 
             items: [
                 app.views.checkoutWorkflow.parkedCarsScreen,
                 app.views.checkoutWorkflow.parkedCarDetailScreen,
+                app.views.checkoutWorkflow.extensionScreen,
             ]
         });
         app.views.CheckoutWorkflow.superclass.initComponent.apply(this, arguments);

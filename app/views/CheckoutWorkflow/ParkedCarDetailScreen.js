@@ -65,7 +65,12 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
         }),
         new Ext.Button({
             ui  : 'round',
-            text: 'Extend'
+            text: 'Extend',
+            handler : function(){
+                app.views.checkoutWorkflow.setActiveItem(
+                    app.views.checkoutWorkflow.extensionScreen
+                );
+            }
         }),
     ]
 });

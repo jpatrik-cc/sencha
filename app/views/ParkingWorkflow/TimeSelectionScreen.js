@@ -103,7 +103,7 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
             app.views.parkingWorkflow.timeSelectionScreen.items.get(0)
                 .setValue(d2.getHours()+":"+d2.getMinutes());
             app.views.parkingWorkflow.timeSelectionScreen.items.get(1)
-                .setValue('€'+(0.0166*15).toFixed(2));
+                .setValue('€'+(0.0166*60).toFixed(2));
             
 
             app.views.parkingWorkflow.timeSelectionScreen.picker.show();
