@@ -1,6 +1,12 @@
 app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
     styleHtmlContent:true,
     scroll: 'vertical',
+    layout: {
+        type: 'vbox',
+        align: 'stretch',
+        pack: 'start'
+    },
+
     dockedItems: [
     {
         xtype: 'toolbar',
@@ -16,7 +22,8 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
             }
         },
         ]
-    }],// end dockedItems.items
+    }],// end dockedItems
+
     items: [
         {tpl:[
             '<h4>Your car {licensePlate}</h4>',
@@ -28,8 +35,10 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
         {contentEl: 'parkedCarDetailScreen'},
 
         new Ext.Button({
-            ui  : 'confirm-round',
+            ui  : 'confirm',
             text: 'Checkout',
+            height: 50,
+            centered: true,
             handler: function() {
                 if (!this.actions) {
                     this.actions = new Ext.ActionSheet({
@@ -38,6 +47,8 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
                             {
                                 text: 'Accept',
                                 ui: 'confirm',
+                                height: 50,
+                                centered: true,
                                 scope : this,
                                 handler: function(button, event){
                                     Ext.Msg.alert(
@@ -53,6 +64,9 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
                                 }
                             },{
                                 text : 'Cancel',
+                                ui: 'normal',
+                                height: 50,
+                                centered: true,
                                 scope : this,
                                 handler : function(){
                                     this.actions.hide();
@@ -64,8 +78,14 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
             }
         }),
         new Ext.Button({
-            ui  : 'round',
-            text: 'Extend'
+            ui  : 'normal',
+            text: 'Extend',
+            height: 50,
+            centered: true,
+            handler: function(button, event) {
+                app.views.checkoutWorkflow.setActiveItem(0, {type: 'slide', 
+                                                             direction: 'right'});
+            }
         }),
     ]
 });
