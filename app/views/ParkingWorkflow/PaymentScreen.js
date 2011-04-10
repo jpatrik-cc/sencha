@@ -50,6 +50,12 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
         {
             contentEl: 'paymentInfo'
         },
+
+        {xtype: 'zipfield',
+         name : 'numberstest',
+         label: 'Numbers Test',
+        },
+
     /*
         {
             contentEl: 'paymentScreen'
