@@ -73,7 +73,6 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
                 var price_per_minute = 0.0166;
                 var flat_rate = 10;
                 var minutes = values.hours * 60 + values.minutes;
-                console.log(minutes);
                 if ( minutes >= 180 ){ 
                     var estimate = flat_rate
                 }else{
@@ -82,9 +81,13 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
 
                 app.views.parkingWorkflow.timeSelectionScreen.items.get(1)
                     .setValue('€{0}'.format(estimate));
-
-                console.log(picker, values);
-            }
+            },
+            // move: {
+            //     element: 'el',
+            //     fn: function(a, b, c){
+            //         console.log(a,b,c);
+            //     }
+            // },
         }
     }),
     listeners:{
@@ -140,6 +143,11 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
         new Ext.Button({
             ui  : 'normal',
             text: 'Confirm time',
+            height: 50,
+            padding: 10,
+            margin: '10 10 10 10',
+            centered: true,
+
             handler: function ()
             {
                 Ext.dispatch(
