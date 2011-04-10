@@ -76,7 +76,7 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
                 if ( minutes >= 180 ){ 
                     var estimate = flat_rate
                 }else{
-                    var estimate = minutes*price_per_minute
+                    var estimate = (minutes*price_per_minute).toFixed(2)
                 }
 
                 app.views.parkingWorkflow.timeSelectionScreen.items.get(1)
@@ -93,8 +93,8 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
     listeners:{
         activate : function(panel){
             // set the default time
-            var default_hours = 0;
-            var default_minutes = 15;
+            var default_hours = 1;
+            var default_minutes = 0;
 
             var d = new Date();
             var d2 = new Date( d );
@@ -103,13 +103,13 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
             app.views.parkingWorkflow.timeSelectionScreen.items.get(0)
                 .setValue(d2.getHours()+":"+d2.getMinutes());
             app.views.parkingWorkflow.timeSelectionScreen.items.get(1)
-                .setValue('€'+0.0166*15);
+                .setValue('€'+(0.0166*15).toFixed(2));
             
 
             app.views.parkingWorkflow.timeSelectionScreen.picker.show();
             app.views.parkingWorkflow.timeSelectionScreen.picker.setValue({
-               hours: 0,
-               minutes: 15,
+               hours: 1,
+               minutes: 0,
             })
             
         }
@@ -126,8 +126,8 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
                  fn: function(){ 
                      app.views.parkingWorkflow.timeSelectionScreen.picker.show();
                      app.views.parkingWorkflow.timeSelectionScreen.picker.setValue({
-                         hours: 0,
-                         minutes: 15,
+                         hours: 1,
+                         minutes: 0,
                      });
                  }
              },
