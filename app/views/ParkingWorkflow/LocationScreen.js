@@ -51,7 +51,7 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
         new Ext.Button({
             ui  : 'normal',
             text: 'Confirm location',
-            width: 320,
+            width: 300,
             height: 50,
             padding: 10,
             margin: '10 0 0 0',
