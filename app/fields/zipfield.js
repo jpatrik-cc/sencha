@@ -1,6 +1,6 @@
 Ext.form.Zip = Ext.extend(Ext.form.Text, {
     ui: 'number',
-    inputType: 'text',
+    inputType: 'password',
     minValue : undefined,
     maxValue : undefined,
     stepValue : undefined,
