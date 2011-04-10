@@ -68,7 +68,7 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
                 d2.setMinutes(d.getMinutes() + values.minutes);
 
                 app.views.parkingWorkflow.timeSelectionScreen.items.get(0)
-                    .setValue("{0}:{1}".format(d2.getHours(), d2.getMinutes()));
+                    .setValue(d2.getHours()+":"+d2.getMinutes());
 
                 var price_per_minute = 0.0166;
                 var flat_rate = 10;
@@ -80,7 +80,7 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
                 }
 
                 app.views.parkingWorkflow.timeSelectionScreen.items.get(1)
-                    .setValue('€{0}'.format(estimate));
+                    .setValue('€'+estimate);
             },
             // move: {
             //     element: 'el',
@@ -103,7 +103,7 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
             app.views.parkingWorkflow.timeSelectionScreen.items.get(0)
                 .setValue(d2.getHours()+":"+d2.getMinutes());
             app.views.parkingWorkflow.timeSelectionScreen.items.get(1)
-                .setValue('€{0}'.format(0.0166*15));
+                .setValue('€'+0.0166*15);
             
 
             app.views.parkingWorkflow.timeSelectionScreen.picker.show();
@@ -167,11 +167,3 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
             this, arguments);
     }
 });
-
-String.prototype.format = function() {
-    var formatted = this;
-    for(arg in arguments) {
-        formatted = formatted.replace("{" + arg + "}", arguments[arg]);
-    }
-    return formatted;
-};
