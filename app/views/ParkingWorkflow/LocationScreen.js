@@ -3,7 +3,7 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
     scroll: 'vertical',
     layout: {
         type: 'vbox',
-        align: 'center'
+        align: 'stretch'
     },
 
     dockedItems: [
@@ -21,7 +21,7 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
                     locationupdate: function (geo) {
                         img = document.createElement('img');
                         img.setAttribute('style','border-radius: 5px;');
-                        img.setAttribute('src','http://maps.google.com/maps/api/staticmap?markers='+geo.latitude+','+geo.longitude+'&zoom=16&size=300x160&sensor=true');
+                        img.setAttribute('src','http://maps.google.com/maps/api/staticmap?markers='+geo.latitude+','+geo.longitude+'&zoom=16&size=300x140&sensor=true');
                         div = document.getElementById("map_img");
                         if ( div.firstChild ){ //This is a little week, but works for now
                             div.removeChild(div.firstChild);
@@ -54,10 +54,10 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
         new Ext.Button({
             ui  : 'normal',
             text: 'Confirm location',
-            width: 320,
+            /* width: 320, */
             height: 50,
             padding: 10,
-            margin: '10 0 0 0',
+            margin: '10 10 0 10',
             centered: true,
             handler: function ()
             {

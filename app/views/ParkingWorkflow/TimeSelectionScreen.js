@@ -10,7 +10,7 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
     {
         xtype: 'toolbar',
         dock: 'top',
-        title: 'Time Selection',
+        title: 'Time',
         layout:
         {
             type: 'hbox',
@@ -19,7 +19,7 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
         },
         items: [
         {
-            text: 'Car Selection',
+            text: 'Cars',
             ui: 'back',
             handler: function ()
             {
@@ -30,12 +30,13 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
                     animation: { type: 'slide', direction: 'right' }
                 });
             }
-        },
+        }
         ] // end dockedItems.items
     }], // end dockedItems
 
     picker: new Ext.Picker({
         useTitles: true,
+        width: 300,
         slots: [
             {name : 'hours',
              title: 'Hours',
@@ -139,8 +140,8 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
     items:[
         {contentEl: 'timeSelectionScreen'},
         new Ext.Button({
-            ui  : 'confirm-round',
-            text: 'Next',
+            ui  : 'normal',
+            text: 'Confirm time',
             handler: function ()
             {
                 Ext.dispatch(
