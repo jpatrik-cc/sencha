@@ -1,5 +1,10 @@
 app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
     componentName: 'TimeSelectionScreen',
+    scroll: 'vertical',
+    layout: {
+        type: 'vbox',
+        align: 'center',
+    },
 
     dockedItems: [
     {

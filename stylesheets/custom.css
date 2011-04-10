@@ -1,0 +1,25 @@
+/*
+ * iPhone screen coordinate system is 320x480pts (px?).
+ */
+
+#content-elements {
+    height: 400px;
+    width: 320px;
+}
+
+#locationScreen {
+    margin: 0 auto;
+}
+
+#parkingTerms {
+}
+
+#paymentScreen {
+}
+
+#timeSelectionScreen {
+}
+
+#parkedCarDetailScreen {
+}
+

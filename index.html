@@ -48,28 +48,33 @@
   <body>
     <div id="content-elements" style="display: none;"> 
 
-      <div id="locationScreen">
-        You're here on Qpark's parking lot at Carlsgatan
-        <div id="map_img">
-          .
+        <div id="locationScreen" style="width: 320px; height: 420px; margin: 5px auto; overflow: hidden;">
+            <div id="locationInfo" style="width: auto; padding: 5px; margin: 0 auto;">
+             <h2> QPark parking lot, Carlsgatan </h2>
+            </div>
+
+            <hr />
+
+            <div id="parkingTerms" style="padding: 5px;">
+                <h3 style="float: left;">Prices:</h3>
+                <div style="float: right">
+                    <p>Hour: 10kr</p>
+                    <p>Day: 10kr</p>
+                    <p>Maximum: 3 hours</p>
+                </div>
+                <div style="display: block; clear: both;"></div>
+            </div>
+
+            <div id="map_img" style="width: 320px;"></div>
         </div>
-        Click Next to start your parking
-      </div>
 
-      <div id="parkingTerms">
-        <p>Prices:</p>
-        <p>Hour: 10kr</p>
-        <p>Day: 10kr</p>
-        <p>Maximum: 3 hours</p>
-      </div>
-
-      <div id="paymentScreen">
-        <table>
-          <tr><td>1</td><td>2</td><td>3</td></tr>
-          <tr><td>4</td><td>5</td><td>6</td></tr>
-          <tr><td>7</td><td>8</td><td>9</td></tr>
-          <tr><td></td><td>0</td><td></td></tr>
-      </div>
+        <div id="paymentScreen">
+            <table>
+            <tr><td>1</td><td>2</td><td>3</td></tr>
+            <tr><td>4</td><td>5</td><td>6</td></tr>
+            <tr><td>7</td><td>8</td><td>9</td></tr>
+            <tr><td></td><td>0</td><td></td></tr>
+        </div>
 
       <div id="timeSelectionScreen">
         Select the time for the reminder... (or something)

@@ -1,12 +1,16 @@
 app.views.parkingWorkflow.CarSelectionScreen = Ext.extend(Ext.Panel, {
-    fullscreen: true,
     componentName: 'CarSelectionScreen',
+    scroll: 'vertical',
+    layout: {
+        type: 'vbox',
+        align: 'center'
+    },
 
     dockedItems: [
     {
         xtype: 'toolbar',
         dock: 'top',
-        title: 'Car Selection',
+        title: 'Cars',
         layout:
         {
             type: 'hbox',
@@ -30,19 +34,50 @@ app.views.parkingWorkflow.CarSelectionScreen = Ext.extend(Ext.Panel, {
         ] // end dockedItems.items
     }], // end dockedItems
 
-    items: [{
-        xtype: 'list',
-        store: app.stores.availableCars,
-        itemTpl: '{make} {model} ({licensePlate})',
-        onItemSelect: function (record) {
-            Ext.dispatch(
-                {
-                    controller: app.controllers.mainDispatcher,
-                    action: 'next',
-                    animation: { type: 'slide', direction: 'left' }
-                });
+    items: [
+        new Ext.Button({
+            ui: 'normal',
+            text: 'Ferrari F50 (XRK 543)',
+            width: 320,
+            height: 50,
+            padding: 10,
+            margin: '30 0 15 0',
+            centered: true,
+            handler: function (record) {
+                Ext.dispatch(
+                    {
+                        controller: app.controllers.mainDispatcher,
+                        action: 'next',
+                        animation: { type: 'slide', direction: 'left' }
+                    });
+            }
+        }),
+        new Ext.Button({
+            ui: 'normal',
+            text: 'Other',
+            width: 320,
+            height: 50,
+            padding: 10,
+            margin: '15 0 30 0',
+            centered: true
+        })
+        /*
+        {
+            xtype: 'list',
+            width: 320,
+            store: app.stores.availableCars,
+            itemTpl: '{make} {model} ({licensePlate})',
+            onItemSelect: function (record) {
+                Ext.dispatch(
+                    {
+                        controller: app.controllers.mainDispatcher,
+                        action: 'next',
+                        animation: { type: 'slide', direction: 'left' }
+                    });
+            }
         }
-    }],
+        */
+    ],
 
     listeners:{
         activate : function(panel){

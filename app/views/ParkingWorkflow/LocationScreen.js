@@ -1,22 +1,17 @@
 app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
     componentName: 'LocationScreen',
-    title: 'Map',
-    // getLocation: true,
-    // mapOptions: {
-    //     zoom: 16
-    // },
-    // useCurrentLocation: true,
+    scroll: 'vertical',
+    layout: {
+        type: 'vbox',
+        align: 'center'
+    },
+
     dockedItems: [
     {
         xtype: 'toolbar',
         dock: 'top',
         title: 'Location',
     }], // end dockedItems
-    scroll: 'vertical',
-    layout: {
-        type: 'vbox',
-        align: 'strech'
-    },
 
     listeners:{
         activate : function(panel){
@@ -25,7 +20,7 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
                 listeners: {
                     locationupdate: function (geo) {
                         img = document.createElement('img');
-                        img.setAttribute('src','http://maps.google.com/maps/api/staticmap?markers='+geo.latitude+','+geo.longitude+'&zoom=16&size=150x100&sensor=true');
+                        img.setAttribute('src','http://maps.google.com/maps/api/staticmap?markers='+geo.latitude+','+geo.longitude+'&zoom=16&size=320x350&sensor=true');
                         div = document.getElementById("map_img")
                         div.appendChild(img);
                     },
@@ -48,11 +43,18 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
     },
 
     items:[
-        {contentEl: 'locationScreen', height:150},
-        {contentEl: 'parkingTerms'},
+        {
+            contentEl: 'locationScreen'
+        },
+        /* {contentEl: 'parkingTerms'}, */
         new Ext.Button({
-            ui  : 'confirm-round',
-            text: 'Next',
+            ui  : 'normal',
+            text: 'Confirm location',
+            width: 320,
+            height: 50,
+            padding: 10,
+            margin: '10 0 0 0',
+            centered: true,
             handler: function ()
             {
                 Ext.dispatch(
