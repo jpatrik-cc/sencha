@@ -39,7 +39,7 @@ app.views.parkingWorkflow.CarSelectionScreen = Ext.extend(Ext.Panel, {
     items: [
         new Ext.Button({
             ui: 'normal',
-            text: 'Ferrari F50 (XRK 543)',
+            text: 'BMW 320 (RDE 154)',
             /* width: 320, */
             height: 50,
             padding: 10,
