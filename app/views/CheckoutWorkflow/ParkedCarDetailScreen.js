@@ -1,14 +1,20 @@
 app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
     styleHtmlContent:true,
     scroll: 'vertical',
+    layout: {
+        type: 'vbox',
+        align: 'stretch',
+        pack: 'start'
+    },
+
     dockedItems: [
     {
         xtype: 'toolbar',
         dock: 'top',
-        title: 'Your parking',
+        title: 'Parking',
         items: [
         {
-            text: 'Parking',
+            text: 'Cars',
             ui: 'back',
             handler: function (){
                 app.views.checkoutWorkflow.setActiveItem(0, { type: 'slide', 
@@ -16,7 +22,8 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
             }
         },
         ]
-    }],// end dockedItems.items
+    }],// end dockedItems
+
     items: [
         {tpl:[
             '<h4>Your car {licensePlate}</h4>',
@@ -26,10 +33,25 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
             '<h4>Your total payment is: {ammount}</h4>',
         ]},
         {contentEl: 'parkedCarDetailScreen'},
-
+        /*
+    {
+        xtype: 'text',
+        store: app.stores.parkedCars,
+        itemTpl: '{licensePlate} parked at {parkingLot} (since {time})',
+    },
+    */
+        /*
+        {
+            html: 'RDE 154 parked at Ideon (since 1 min)',
+            centered: true
+        },
+        */
         new Ext.Button({
-            ui  : 'confirm-round',
+            ui  : 'confirm',
             text: 'Checkout',
+            height: 50,
+            centered: true,
+            margin: 10,
             handler: function() {
                 if (!this.actions) {
                     this.actions = new Ext.ActionSheet({
@@ -38,6 +60,8 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
                             {
                                 text: 'Accept',
                                 ui: 'confirm',
+                                height: 50,
+                                centered: true,
                                 scope : this,
                                 handler: function(button, event){
                                     Ext.Msg.alert(
@@ -53,6 +77,9 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
                                 }
                             },{
                                 text : 'Cancel',
+                                ui: 'normal',
+                                height: 50,
+                                centered: true,
                                 scope : this,
                                 handler : function(){
                                     this.actions.hide();
@@ -64,8 +91,11 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
             }
         }),
         new Ext.Button({
-            ui  : 'round',
+            ui  : 'normal',
             text: 'Extend',
+            height: 50,
+            margin: 10,
+            centered: true,
             handler : function(){
                 app.views.checkoutWorkflow.setActiveItem(
                     app.views.checkoutWorkflow.extensionScreen
