@@ -39,9 +39,8 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
             {xtype: 'toolbar',
              dock: 'top',
              title: 'Welcome!',},
-            new Ext.Panel({
-                html:'<div id="firstTime">Enter your activation code from <a href="https://demo.link.be">linkid</a></div>',
-            })
+            {html:'<div id="firstTime">You\'re using JustPark for the first time.</div>',},
+            {html:'<div id="firstTime">Please enter your activation code from <a href="https://demo.link.be">LinkId</a></div>'},
         ]
     }),
     
@@ -49,7 +48,7 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
         afterrender: function(panel){
             var user = localStorage.getItem("user")
             if ( user ){
-                //localStorage.removeItem("user");
+                localStorage.removeItem("user");
             }else{
                 this.popup.show('pop');
                 localStorage.setItem("user", "activated");
