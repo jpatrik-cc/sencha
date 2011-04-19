@@ -14,18 +14,6 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
         title: 'Location',
     }], 
 
-    popup2: new Ext.MessageBox({
-        floating: true,
-        modal: true,
-        prompt: true,
-        title: 'test',
-        msg: 'message',
-        fn: function(buttonId, value){
-            alert(buttonId);
-            alert(value);
-        },
-    }),
-
     popup: new Ext.MessageBox({
         floating: true,
         modal: true,
@@ -46,7 +34,9 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
             {xtype: 'toolbar',
              dock: 'top',
              title: 'Welcome!',},
-            {html:'Enter your activation code from <a href="http://www.linkid.com">linkid</a>'},
+            new Ext.Panel({
+                html:'<div id="firstTime">Enter your activation code from <a href="http://www.linkid.com">linkid</a></div>',
+            })
         ]
     }),
     

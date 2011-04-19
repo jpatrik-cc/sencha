@@ -23,3 +23,8 @@
 #parkedCarDetailScreen {
 }
 
+#firstTime {
+    background-color: #10171f;
+    color: rgba(186, 202, 222, 0.9);
+    text-shadow: rgba(0, 0, 0, 0.5) 0 -0.08em 0;
+}
