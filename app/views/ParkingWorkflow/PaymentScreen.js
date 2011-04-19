@@ -41,6 +41,7 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
             height: 50,
             padding: 10,
             margin: 10,
+            /*
             handler: function() {
                 if (!this.popup) {
                     app.views.parkingWorkflow.paymentScreen.popup = 
@@ -80,7 +81,21 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
                     });
                 }
                 app.views.parkingWorkflow.paymentScreen.popup.show('pop');
-            },
+            }, // end Handler
+            */
+            handler: function ()
+            {
+                Ext.Msg.alert('Confirmation', 'Your car has been parked',
+                              function ()
+                              {
+                                  app.views.viewport.setActiveItem(
+                                    1, 
+                                    {
+                                        type: 'slide', direction: 'left'
+                                    });
+                              });
+            }
+        }) // end Button
 
 
             // handler: function(){
@@ -100,7 +115,7 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
             //         }
             //     );
             // }
-        })
+            // })
     ],
 
     initComponent: function() {
