@@ -14,10 +14,14 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
         title: 'Location',
     }], 
 
+    //popupfield: {xtype: 'zipfield',
+    //             name : 'numberstest',},
+
     popup: new Ext.MessageBox({
         floating: true,
         modal: true,
         items: [
+            //app.views.parkingWorkflow.locationScreen.popupfield,
             {xtype: 'zipfield',
              name : 'numberstest',},
             new Ext.Button({
@@ -26,6 +30,7 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
                 padding: 10,
                 margin: '20 0 0 0',
                 handler: function(a,b,c){
+                    Ext.Msg.alert('Confirmed', 'Your profile is activated')
                     app.views.parkingWorkflow.locationScreen.popup.hide('pop');
                 },
             }),
@@ -35,7 +40,7 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
              dock: 'top',
              title: 'Welcome!',},
             new Ext.Panel({
-                html:'<div id="firstTime">Enter your activation code from <a href="http://www.linkid.com">linkid</a></div>',
+                html:'<div id="firstTime">Enter your activation code from <a href="https://demo.link.be">linkid</a></div>',
             })
         ]
     }),
