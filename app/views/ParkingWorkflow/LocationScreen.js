@@ -49,14 +49,11 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
         afterrender: function(panel){
             var user = localStorage.getItem("user")
             if ( user ){
-                //temporary
-                localStorage.removeItem("user");
+                //localStorage.removeItem("user");
             }else{
-                
+                this.popup.show('pop');
                 localStorage.setItem("user", "activated");
             }
-            //Move this to the first-time-use case
-            this.popup.show('pop');
         },
         activate : function(panel){
             var geo = new Ext.util.GeoLocation({
