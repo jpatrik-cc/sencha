@@ -12,9 +12,57 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
         xtype: 'toolbar',
         dock: 'top',
         title: 'Location',
-    }], // end dockedItems
+    }], 
 
+    popup2: new Ext.MessageBox({
+        floating: true,
+        modal: true,
+        prompt: true,
+        title: 'test',
+        msg: 'message',
+        fn: function(buttonId, value){
+            alert(buttonId);
+            alert(value);
+        },
+    }),
+
+    popup: new Ext.MessageBox({
+        floating: true,
+        modal: true,
+        items: [
+            {xtype: 'zipfield',
+             name : 'numberstest',},
+            new Ext.Button({
+                ui  : 'confirm',
+                text: 'Confirm',
+                padding: 10,
+                margin: '20 0 0 0',
+                handler: function(a,b,c){
+                    app.views.parkingWorkflow.locationScreen.popup.hide('pop');
+                },
+            }),
+        ],
+        dockedItems: [
+            {xtype: 'toolbar',
+             dock: 'top',
+             title: 'Welcome!',},
+            {html:'Enter your activation code from <a href="http://www.linkid.com">linkid</a>'},
+        ]
+    }),
+    
     listeners:{
+        afterrender: function(panel){
+            var user = localStorage.getItem("user")
+            if ( user ){
+                //temporary
+                localStorage.removeItem("user");
+            }else{
+                
+                localStorage.setItem("user", "activated");
+            }
+            //Move this to the first-time-use case
+            this.popup.show('pop');
+        },
         activate : function(panel){
             var geo = new Ext.util.GeoLocation({
                 autoUpdate: false,
@@ -79,8 +127,4 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
         app.views.parkingWorkflow.LocationScreen.superclass.initComponent.apply(this, arguments);
     }
 });
-
-//Jun  4-11
-//May 21-28
-//1200 USD
 
