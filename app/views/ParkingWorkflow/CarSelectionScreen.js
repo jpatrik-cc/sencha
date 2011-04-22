@@ -46,6 +46,9 @@ app.views.parkingWorkflow.CarSelectionScreen = Ext.extend(Ext.Panel, {
             margin: '30 10 10 10',
             centered: true,
             handler: function (record) {
+                var parking = JSON.parse(localStorage.getItem("currentParking"));
+                parking['lisencePlate'] = 'RDE-154'
+                localStorage.setItem("currentParking", JSON.stringify(parking));
                 Ext.dispatch(
                     {
                         controller: app.controllers.mainDispatcher,

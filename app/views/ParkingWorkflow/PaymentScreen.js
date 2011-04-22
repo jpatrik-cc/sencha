@@ -33,7 +33,9 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
     }], // end dockedItems
     items: [
         {
-            contentEl: 'paymentInfo'
+            //contentEl: 'paymentInfo'
+            tpl: 'test {name}',
+            data: {name: 'hey'},
         },
         new Ext.Button({
             ui  : 'normal',
@@ -117,6 +119,13 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
             // }
             // })
     ],
+    listeners:{
+        activate : function(panel){
+            var parking = JSON.parse(localStorage.getItem("currentParking"));
+            console.log(parking['parkingLot']);
+            console.log(parking['lisencePlate']);
+        },
+    },
 
     initComponent: function() {
         console.log('PaymentScreen.init');

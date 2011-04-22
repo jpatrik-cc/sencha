@@ -150,6 +150,10 @@ app.views.parkingWorkflow.TimeSelectionScreen = Ext.extend(Ext.Panel, {
 
             handler: function ()
             {
+                var parking = JSON.parse(localStorage.getItem("currentParking"));
+                parking['currentReminder'] = 
+                    app.views.parkingWorkflow.timeSelectionScreen.items.get(0).value;
+                localStorage.setItem("currentParking", JSON.stringify(parking));
                 Ext.dispatch(
                 {
                     controller: app.controllers.mainDispatcher,

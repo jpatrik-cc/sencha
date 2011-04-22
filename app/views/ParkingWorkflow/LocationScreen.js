@@ -40,21 +40,20 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
              dock: 'top',
              title: 'Welcome!',},
             {html:'<div id="firstTime">You\'re using JustPark for the first time.</div>',},
-            {html:'<div id="firstTime">Please enter your activation code from <a href="https://demo.link.be">LinkId</a></div>'},
+            {html:'<div id="firstTime">Please enter your activation code from <a href="https://demo.linkid.be">LinkID</a></div>'},
         ]
     }),
     
     listeners:{
-        afterrender: function(panel){
-            var user = localStorage.getItem("user")
+        activate : function(panel){
+            var user = localStorage.getItem("user");
             if ( user ){
                 localStorage.removeItem("user");
             }else{
                 this.popup.show('pop');
                 localStorage.setItem("user", "activated");
             }
-        },
-        activate : function(panel){
+
             var geo = new Ext.util.GeoLocation({
                 autoUpdate: false,
                 listeners: {
@@ -102,6 +101,10 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
             centered: true,
             handler: function ()
             {
+                var parking = JSON.parse(localStorage.getItem("currentParking")) || {};
+                parking['parkingLot'] = 'Q-Park 124'
+                localStorage.setItem("currentParking", JSON.stringify(parking));
+
                 Ext.dispatch(
                 {
                     controller: app.controllers.mainDispatcher,
