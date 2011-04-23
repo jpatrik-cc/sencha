@@ -66,7 +66,7 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
                                 handler: function(button, event){
                                     Ext.Msg.alert(
                                         'Confirmation', 
-                                        'Your car has checked out.',
+                                        'Parking of your car has been terminated',
                                         function(){
                                             app.views.checkoutWorkflow
                                                 .setActiveItem(0, 
