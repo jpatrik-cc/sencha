@@ -27,8 +27,12 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
             new Ext.Button({
                 ui  : 'confirm',
                 text: 'Confirm',
+                icon: 'app/images/seal_nogreen_small.png',
+                iconAlign: 'right',
+                //cls: 'x-btn-text-icon',
                 padding: 10,
                 margin: '20 0 0 0',
+                minHeight: 50,
                 handler: function(a,b,c){
                     Ext.Msg.alert('Confirmation', 'Your linkID profile is activated for JustPark')
                     app.views.parkingWorkflow.locationScreen.popup.hide('pop');
@@ -40,7 +44,6 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
              dock: 'top',
              title: 'Welcome!',},
             {html:'<div id="firstTime">You are using JustPark for the first time, please enter your activation code:</div>',},
-            // {html:'<div id="firstTime">Please enter your activation code</div>'},
         ]
     }),
     
