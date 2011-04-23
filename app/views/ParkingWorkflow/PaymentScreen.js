@@ -33,9 +33,9 @@ app.views.parkingWorkflow.PaymentScreen = Ext.extend(Ext.Panel, {
     }], // end dockedItems
     items: [
         {
-            //contentEl: 'paymentInfo'
-            tpl: 'test {name}',
-            data: {name: 'hey'},
+            contentEl: 'paymentInfo'
+            //tpl: 'test {name}',
+            //data: {name: 'hey'},
         },
         new Ext.Button({
             ui  : 'normal',

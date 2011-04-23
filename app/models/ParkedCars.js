@@ -10,7 +10,7 @@ app.stores.parkedCars = new Ext.data.JsonStore({
     model  : 'app.models.ParkedCars',
 
     data: [
-        {id: 'XRK-55D', licensePlate: 'RDE 154', parkingLot: 'Ideon', time:'1 min'},
+        {id: 'XRK-55D', licensePlate: 'RDE 154', parkingLot: 'City', time:'1 min'},
     ]
 });
 
