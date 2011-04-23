@@ -50,8 +50,11 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
             ui  : 'confirm',
             text: 'Checkout',
             height: 50,
+            icon: 'app/images/seal_nogreen_small.png',
+            iconAlign: 'right',
             centered: true,
             margin: 10,
+            padding: '5 10 5 60',
             handler: function() {
                 if (!this.actions) {
                     this.actions = new Ext.ActionSheet({
@@ -62,6 +65,9 @@ app.views.checkoutWorkflow.ParkedCarDetailScreen = Ext.extend(Ext.Panel, {
                                 ui: 'confirm',
                                 height: 50,
                                 centered: true,
+                                icon: 'app/images/seal_nogreen_small.png',
+                                iconAlign: 'right',
+                                padding: '5 10 5 60',
                                 scope : this,
                                 handler: function(button, event){
                                     Ext.Msg.alert(

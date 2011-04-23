@@ -30,9 +30,9 @@ app.views.parkingWorkflow.LocationScreen = Ext.extend(Ext.Panel, {
                 icon: 'app/images/seal_nogreen_small.png',
                 iconAlign: 'right',
                 //cls: 'x-btn-text-icon',
-                padding: 10,
+                padding: '5 10 5 60',
                 margin: '20 0 0 0',
-                minHeight: 50,
+                height: 50,
                 handler: function(a,b,c){
                     Ext.Msg.alert('Confirmation', 'Your linkID profile is activated for JustPark')
                     app.views.parkingWorkflow.locationScreen.popup.hide('pop');
